@@ -1,0 +1,2 @@
+- [x] Refactor BestSellerListView to return a SliverList instead of ListView
+- [x] Update home_view_body.dart to remove SliverFillRemaining and use BestSellerListView directly as a sliver
