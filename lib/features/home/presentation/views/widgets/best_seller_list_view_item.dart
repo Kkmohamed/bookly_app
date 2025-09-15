@@ -56,7 +56,9 @@ class BestSellerListViewItem extends StatelessWidget {
                         ),
                       ),
                       Spacer(),
-                      BookRating(),
+                      BookRating(
+                        mainAxisAlignment: MainAxisAlignment.end,   
+                      ),
                     ],
                   ),
                 ],
