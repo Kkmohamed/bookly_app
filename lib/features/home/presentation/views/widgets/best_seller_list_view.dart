@@ -1,4 +1,5 @@
 import 'package:bookly/features/home/presentation/views/widgets/best_seller_list_view_item.dart';
+
 import 'package:flutter/material.dart';
 
 class BestSellerListView extends StatelessWidget {
@@ -9,8 +10,8 @@ class BestSellerListView extends StatelessWidget {
     return SliverList.builder(
       itemBuilder:
           (context, index) => Padding(
-            padding: const EdgeInsets.only(bottom: 20.0),
-            child: BestSellerListViewItem(),
+            padding: const EdgeInsets.only(bottom: 20),
+            child: const BestSellerListViewItem(),
           ),
       itemCount: 10,
     );
