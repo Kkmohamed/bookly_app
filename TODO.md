@@ -1,2 +1,3 @@
-- [x] Refactor BestSellerListView to return a SliverList instead of ListView
-- [x] Update home_view_body.dart to remove SliverFillRemaining and use BestSellerListView directly as a sliver
+- [ ] Wrap the Column in BookDetailsViewBody with SingleChildScrollView
+- [ ] Remove Expanded from SimilarBooksListview
+- [ ] Increase height in SimilarBooksListview from 0.15 to 0.3
