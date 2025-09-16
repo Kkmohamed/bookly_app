@@ -16,7 +16,8 @@ class BookDetailsSection extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.2),
           child: CustomBookImage(
-            imageUrl: 'https://ul.postcrest.com/vda0in12x6z7yots39e0r97bp8dt.png?format=webp&width=832'
+            imageUrl:
+                'https://ul.postcrest.com/vda0in12x6z7yots39e0r97bp8dt.png?format=webp&width=832',
           ),
         ),
         SizedBox(height: 40),
@@ -30,7 +31,11 @@ class BookDetailsSection extends StatelessWidget {
           ),
         ),
         SizedBox(height: 16),
-        BookRating(mainAxisAlignment: MainAxisAlignment.center),
+        BookRating(
+          mainAxisAlignment: MainAxisAlignment.center,
+          rating: 4,
+          count: 2390,
+        ),
         SizedBox(height: 37),
         BooksAction(),
       ],

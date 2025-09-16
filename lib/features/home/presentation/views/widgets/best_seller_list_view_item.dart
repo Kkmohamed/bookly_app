@@ -1,14 +1,16 @@
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly/features/home/presentation/views/widgets/future_list_view_item.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookListviewItem extends StatelessWidget {
-  const BookListviewItem({super.key});
-
+  const BookListviewItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,16 +21,8 @@ class BookListviewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.7 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage(AssetsData.book1),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
+            CustomBookImage(
+              imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
             ),
             SizedBox(width: 30),
             Expanded(
@@ -38,25 +32,28 @@ class BookListviewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
-                      'Harry Potter and the Goblet of Fire',
+                      bookModel.volumeInfo.title!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20,
                     ),
                   ),
                   SizedBox(height: 3),
-                  Text('J.K. Rowling', style: Styles.textStyle14),
+                  Text(
+                    bookModel.volumeInfo.authors![0],
+                    style: Styles.textStyle14,
+                  ),
                   SizedBox(height: 3),
                   Row(
                     children: [
                       Text(
-                        '19.99 €',
+                        'Free ',
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Spacer(),
-                      BookRating(mainAxisAlignment: MainAxisAlignment.end),
+                      BookRating(mainAxisAlignment: MainAxisAlignment.end, rating: 4, count: 2390),
                     ],
                   ),
                 ],

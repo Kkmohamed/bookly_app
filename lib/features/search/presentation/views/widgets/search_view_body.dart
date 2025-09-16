@@ -34,7 +34,8 @@ class SerachResultListview extends StatelessWidget {
       itemBuilder:
           (context, index) => Padding(
             padding: const EdgeInsets.only(bottom: 20),
-            child: const BookListviewItem(),
+            // child: const BookListviewItem(),
+            child: Text("data"),
           ),
       itemCount: 10,
     );

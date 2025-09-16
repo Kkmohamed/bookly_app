@@ -1,19 +1,36 @@
+import 'package:bookly/core/widgets/custom_error_widget.dart';
+import 'package:bookly/core/widgets/custom_loading_indicator.dart';
+import 'package:bookly/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/best_seller_list_view_item.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BestSellerListView extends StatelessWidget {
   const BestSellerListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SliverList.builder(
-      itemBuilder:
-          (context, index) => Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: const BookListviewItem(),
-          ),
-      itemCount: 10,
+    return BlocBuilder<NewestBooksCubit, NewestBooksState>(
+      builder: (context, state) {
+        if (state is NewestBooksSuccess) {
+          return SliverList.builder(
+           
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: BookListviewItem(
+                  bookModel: state.books[index],
+                ),
+              );
+            },
+            itemCount: state.books.length,
+          );
+        } else if (state is NewestBooksFailure) {
+          return CustomErrorWidget(errorMessage: state.errMessage);
+        }
+        return SliverFillRemaining(child: CustomLoadingIndicator());
+      },
     );
   }
 }
