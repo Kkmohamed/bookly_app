@@ -21,7 +21,7 @@ class FutureBooksListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
                 final String bookImage =
-                    state.books[index].volumeInfo.imageLinks.thumbnail;
+                    state.books[index].volumeInfo.imageLinks?.thumbnail??'';
                 return Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: CustomBookImage(imageUrl: bookImage),

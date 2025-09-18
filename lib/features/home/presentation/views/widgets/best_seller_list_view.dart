@@ -15,7 +15,7 @@ class BestSellerListView extends StatelessWidget {
       builder: (context, state) {
         if (state is NewestBooksSuccess) {
           return SliverList.builder(
-           
+          
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 20),
